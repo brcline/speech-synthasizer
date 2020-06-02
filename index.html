@@ -40,6 +40,7 @@
       let synth
       let voices
 
+      // getVoices() is asynchronous, so we don't exactly know when it will finish loading.
       function getVoices() {
         return new Promise(
             function (resolve, reject) {
@@ -75,6 +76,7 @@
         voiceSelector.selectedIndex = 1
       }
 
+      // load the voices after all content is loaded.
       document.addEventListener("DOMContentLoaded", function(event) { 
         synth = window.speechSynthesis
 
